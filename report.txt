@@ -1,0 +1,60 @@
+PACKAGE WEIGHT SORTING USING MERGE SORT AND QUICK SORT
+
+1. TRACE TABLE
+
+A. Merge Sort Trace
+
+| Step | Operation | Result |
+|---|---|---|
+| 1 | Original packages | P1(20), P2(15), P3(20), P4(10), P5(15), P6(20), P7(25), P8(10) |
+| 2 | Split into smaller parts | [P1, P2, P3, P4] and [P5, P6, P7, P8] |
+| 3 | Sort smaller parts | [P4(10), P2(15), P1(20), P3(20)] and [P8(10), P5(15), P6(20), P7(25)] |
+| 4 | Merge sorted parts | P4(10), P8(10), P2(15), P5(15), P1(20), P3(20), P6(20), P7(25) |
+
+B. Quick Sort Trace
+
+| Step | Pivot | Result |
+|---|---|---|
+| 1 | 10 | P4(10), P8(10), P3(20), P1(20), P5(15), P6(20), P7(25), P2(15) |
+| 2 | 15 | P4(10), P8(10), P5(15), P2(15), P1(20), P6(20), P7(25), P3(20) |
+| 3 | 20 | P4(10), P8(10), P5(15), P2(15), P1(20), P6(20), P3(20), P7(25) |
+
+2. STABILITY VERIFICATION
+
+Stable Merge Sort preserves the original order of packages with equal weights.
+
+Weight 10: P4 -> P8
+Weight 15: P2 -> P5
+Weight 20: P1 -> P3 -> P6
+
+Quick Sort does not guarantee that equal-weight packages retain their original order.
+
+3. COMPLEXITY ANALYSIS
+
+Merge Sort:
+Best-case time complexity: O(n log n)
+Average-case time complexity: O(n log n)
+Worst-case time complexity: O(n log n)
+Auxiliary space complexity: O(n)
+
+Quick Sort:
+Best-case time complexity: O(n log n)
+Average-case time complexity: O(n log n)
+Worst-case time complexity: O(n^2)
+Average auxiliary stack space: O(log n)
+Worst-case auxiliary stack space: O(n)
+
+4. COMPARISON TABLE
+
+| Feature | Merge Sort | Quick Sort |
+|---|---|---|
+| Stability | Stable with the implemented merge rule | Not stable in this implementation |
+| Best-case time | O(n log n) | O(n log n) |
+| Average-case time | O(n log n) | O(n log n) |
+| Worst-case time | O(n log n) | O(n^2) |
+| Extra space | O(n) | O(log n) average stack space |
+| Equal-weight order | Preserves original order | May change original order |
+
+5. FINAL CONCLUSION
+
+Both Merge Sort and Quick Sort can sort packages by weight in ascending order. Merge Sort is more suitable when the original relative order of packages with equal weights must be maintained because it is stable when equal elements are merged in their original order. It also guarantees O(n log n) time complexity, although it requires O(n) auxiliary space.
